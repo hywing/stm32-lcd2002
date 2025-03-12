@@ -204,6 +204,14 @@ void LCD_Init()
 	
     LCD_WriteCommand(0x01);
     HAL_Delay(5);
+	
+#if 0
+	HAL_TIM_PWM_Start(&htim3, TIM_CHANNEL_1);
+	HAL_TIM_PWM_Start(&htim3, TIM_CHANNEL_2);
+	
+	__HAL_TIM_SET_COMPARE(&htim3, TIM_CHANNEL_1, 500);
+	__HAL_TIM_SET_COMPARE(&htim3, TIM_CHANNEL_2, 500);
+#endif
 }
 
 void LCD_SetCursor(uint8_t col, uint8_t row) 
